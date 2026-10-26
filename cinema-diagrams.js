@@ -97,21 +97,14 @@ function orbitAngle(o, a, direction = 1) {
 function ringHalf(ctx, o, front, color, t, bright = .4, count = 30) {
   ctx.save(); ctx.translate(o.x, o.y); ctx.rotate(o.tilt);
   const a0 = front ? 0 : Math.PI, a1 = front ? Math.PI : TAU;
-  // The guideway stays continuous; discrete metal/coil sections sit on it.
-  ctx.beginPath(); ctx.ellipse(0, 0, o.rx, o.ry, 0, a0, a1);
-  ctx.strokeStyle = '#142631'; ctx.globalAlpha = 1; ctx.lineWidth = front ? 6.5 : 4; ctx.stroke();
-  for (const offset of [-2.6, 2.6]) {
-    ctx.beginPath(); ctx.ellipse(0, 0, o.rx + offset, o.ry + offset * .3, 0, a0, a1);
-    ctx.strokeStyle = front ? '#93a6ae' : '#536873'; ctx.globalAlpha = front ? .42 : .3; ctx.lineWidth = .7; ctx.stroke();
-  }
-  ctx.beginPath(); ctx.ellipse(0, 0, o.rx, o.ry, 0, a0, a1);
-  ctx.strokeStyle = color; ctx.globalAlpha = front ? .18 : .1; ctx.lineWidth = .75; ctx.stroke();
+  count=18;
+  // Hardware occupies only 24% of each angular cell; the remaining 76% is vacuum.
   for (let i = 0; i < count; i++) {
     const a = (i + .15) / count * TAU;
     if ((Math.sin(a) >= 0) !== front) continue;
     const pulse = Math.pow(Math.max(0, Math.cos(a - t * .5)), 14);
     ctx.globalAlpha = (front ? .43 : .24) + pulse * .3 * bright;
-    const aa = a + TAU / count * .32;
+    const aa = a + TAU / count * .24;
     ctx.beginPath(); ctx.ellipse(0, 0, o.rx, o.ry, 0, a, aa);
     ctx.strokeStyle = '#92a1a5'; ctx.lineWidth = front ? 5.3 : 3.7; ctx.stroke();
     ctx.beginPath(); ctx.ellipse(0, 0, o.rx, o.ry, 0, a + .01, aa - .01);
@@ -161,6 +154,16 @@ function surfacePoint(o, port) {
   return {x: o.x + (port.x - o.x) * o.r / o.rx, y: o.y + (port.y - o.y) * o.r / o.rx};
 }
 
+function coastPoint(o,a){
+ const n=18,step=TAU/n,phase=fract(a/step-.15),duty=.24;
+ let ratio=1;
+ if(phase>duty){const alpha=(1-duty)*step/2,phi=(phase-(1+duty)/2)*step,beta=4;
+  const e=((beta-2)*Math.cos(alpha)+Math.sqrt((beta-2)**2*Math.cos(alpha)**2+4*(beta-1)))/2;
+  ratio=(1+e*Math.cos(alpha))/(1+e*Math.cos(phi));
+ }
+ return orbitPoint({...o,rx:o.rx*ratio,ry:o.ry*ratio},a);
+}
+function coastAngle(o,a,direction){const p=coastPoint(o,a),q=coastPoint(o,a+.0001*direction);return Math.atan2(q.y-p.y,q.x-p.x);}
 function ringCargo(ctx, o, a, color, direction, front, size = 1) {
   const isFront = Math.sin(a) >= 0;
   if (front !== isFront) return;
@@ -169,9 +172,9 @@ function ringCargo(ctx, o, a, color, direction, front, size = 1) {
   for (let i = 20; i > 0; i--) {
     const aa = a - direction * i * .009;
     if ((Math.sin(aa) >= 0) !== front) continue;
-    line(ctx, [orbitPoint(o, aa), orbitPoint(o, aa + direction * .007)], color, 1.5, (1 - i / 21) * .27);
+    line(ctx, [coastPoint(o, aa), coastPoint(o, aa + direction * .007)], color, 1.5, (1 - i / 21) * .27);
   }
-  cargo(ctx, orbitPoint(o, a), orbitAngle(o, a, direction), color, size);
+  cargo(ctx, coastPoint(o, a), coastAngle(o, a, direction), color, size);
 }
 
 function globeAndGuideway(ctx, o, kind, color, t, moving = null) {
@@ -207,12 +210,12 @@ function drawOrbit(ctx, w, h, p, t, mobile) {
   if (mobile) {
     leader(ctx, port, { x: 548, y: 126 }, '升轨接驳', C.cyan, 'right');
     leader(ctx, turn, { x: 46, y: 563 }, '转向港', C.gold);
-    label(ctx, '分段推进，连续导向', 300, 632, 19, C.muted, 'center');
+    label(ctx, '模块内受力，段间自由飞行', 300, 632, 19, C.muted, 'center');
   } else {
     leader(ctx, port, { x: 1065, y: 134 }, '升轨接驳', C.cyan, 'right');
     leader(ctx, turn, { x: 116, y: 481 }, '转向港', C.gold);
-    label(ctx, '分段电磁环轨', 600, 552, 21, C.white, 'center');
-    label(ctx, '推进段间歇分布，导向结构连续连接', 600, 586, 15, C.muted, 'center');
+    label(ctx, '离散电磁站阵列', 600, 552, 21, C.white, 'center');
+    label(ctx, '模块主动维持构型，货舱沿段间弹道交接', 600, 586, 15, C.muted, 'center');
   }
 }
 

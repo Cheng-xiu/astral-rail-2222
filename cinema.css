@@ -126,3 +126,107 @@ dialog{width:min(760px,calc(100% - 40px));padding:36px 40px 30px;background:#0a1
 @media(max-width:360px){.hook-story .story-copy h2{font-size:28px}.hook-story .story-copy.bill h2 em{font-size:30px}.scene.physics-cycle h1{font-size:28px}.scene[data-scene='11'] h1{font-size:28px}.scene[data-scene='16'] h1{font-size:30px}.scene[data-scene='10'] h1{font-size:30px}}
 
 .scene.energy-focus .scene-bg{filter:brightness(.52) saturate(.7)}
+
+/* Adopted screenplay edition. Motion follows the same timeline as typography. */
+.scene h1,.story-copy h2{font-weight:600;letter-spacing:-.035em}
+.scene .body-copy strong{color:#ede5d5;font-weight:500}
+.scene .body-copy{font-size:clamp(15px,1.35vw,22px);line-height:1.85;max-width:960px}
+.scene.technical .body-copy{font-size:clamp(13px,1.1vw,18px);max-width:650px}
+.scene .scene-content{top:47%;bottom:auto;transform:translateY(-50%)}
+.scene.technical .scene-content{top:46%;max-width:46%}
+.scene.energy-focus .scene-content,.scene.physics-cycle .scene-content,.scene.exchange-scene .scene-content{top:47%}
+.scene.technical h1{font-size:clamp(37px,4.05vw,67px);line-height:1.32}
+.scene:has(.physics-condition) h1{font-size:clamp(35px,3.8vw,63px)}
+.scene.energy-focus h1,.scene.physics-cycle h1{font-size:clamp(34px,3.9vw,66px)}
+.scene[data-beat] h1 .line,.scene[data-beat] .body-copy{animation:none!important;transform:none}
+.scene .physics-condition{font-size:13px;color:#b4c1c7;margin-top:24px}
+.hook-story .story-copy.bill{max-width:1600px;bottom:24%}
+.hook-story .story-copy.bill h2 em{font-size:clamp(44px,7.8vw,138px);color:#a0e8ee;text-shadow:0 0 50px #77eff526}
+.hook-story .bill-unit{font-size:clamp(27px,3.4vw,57px);margin-top:12px;font-weight:500;letter-spacing:.01em}
+.hook-story .story-copy.bill p{max-width:1100px;font-size:clamp(15px,1.3vw,22px)}
+.hook-story .story-visual.bill .story-bg{filter:brightness(.42) saturate(.65)}
+.story-copy{max-width:1480px;bottom:22%}
+.history-story .story-copy h2{font-size:clamp(42px,5.2vw,83px);line-height:1.32}
+.history-story .story-copy p{font-size:clamp(15px,1.3vw,22px);max-width:1000px}
+.history-story .story-copy.settlement h2{font-size:clamp(38px,4.65vw,76px)}
+.scene.inevitability h1{font-size:clamp(45px,5.6vw,92px)}
+.scene.inevitability .body-copy{max-width:1250px;line-height:1.95}
+.scene.seedship .scene-content{max-width:1200px;bottom:auto!important;top:49%}
+.scene.seedship h1{font-size:clamp(42px,5vw,83px)}
+.scene.seedship .scene-bg{filter:brightness(.67)}
+.scene.voyage .scene-content{max-width:70%;top:47%}
+.scene.voyage h1{font-size:clamp(42px,5.1vw,80px)}
+.scene.voyage .travel-profile{max-width:850px}
+.route-spec{font-size:13px;color:#ddc69d;margin-top:23px;line-height:1.8}
+.scene.transport .scene-content{max-width:95%;top:22%;transform:translateY(-40%)}
+.scene.transport h1{font-size:clamp(33px,4vw,63px)}
+.scene.transport .body-copy{font-size:16px;max-width:1000px;margin-top:16px}
+.scene.transport .route-spec{font-size:12px;margin-top:13px}
+.diagram-stage.transport-stage{top:40%;height:48%}
+.engineering-list{padding:0;list-style:none;margin:26px 0 0;display:grid;gap:13px;color:#d9e4e7;font-size:16px;counter-reset:eng}
+.engineering-list li{counter-increment:eng}.engineering-list li:before{content:'0' counter(eng);color:#90c9d4;margin-right:14px;font:12px monospace}.engineering-list span{color:#839da9;font-size:12px;margin-left:15px}
+.scene.orbital-system .scene-content{top:43%;max-width:47%}
+.scene.orbital-system h1{font-size:clamp(35px,3.7vw,62px)}
+.speed-bands{top:37%;width:35%;gap:16px}
+.speed-band,.speed-band.active{display:block!important;opacity:.45;font:clamp(20px,2.5vw,38px)/1.3 monospace;padding:20px 0;background:none}
+.speed-band.active{opacity:1}.speed-band small{font-size:13px;margin-top:13px}
+.speed-band i{animation:none!important;left:calc(var(--pulse-p,0)*100% - 70px)!important;bottom:0;top:auto!important;width:70px;opacity:var(--pulse-alpha,0);background:var(--cyan)}
+.speed-band .return-pulse{left:calc((1 - var(--pulse-p,0))*100% - 70px)!important;bottom:6px!important;top:auto!important;background:var(--gold)!important}
+.scene.bands .scene-bg,.scene.exchange-scene .scene-bg{filter:brightness(.34) saturate(.5)}
+.scene.assembly-scene .scene-bg{filter:brightness(.2) saturate(.3)}
+.terminal-report{position:absolute;left:var(--safe);bottom:17%;color:#81d9c2;font:13px/1.8 Consolas,monospace;letter-spacing:.04em;z-index:5;opacity:var(--terminal-alpha,0)}
+.terminal-report span{color:#c8e9dc}.terminal-report p{margin-top:5px}
+.scene.message .scene-content{top:43%;bottom:auto;max-width:1200px}
+.scene.message h1{font-size:clamp(45px,5.3vw,86px);line-height:1.35}
+.network-scale{font-size:12px;color:#a0b6bd;line-height:1.9;margin-top:22px}
+.scene.network .scene-content{top:46%}.scene.network .metrics .metric{display:block!important}
+.scene.network .metrics{gap:35px}
+.scene.commercial .scene-content{top:46%;max-width:100%}
+.scene.commercial h1{font-size:clamp(42px,5vw,80px)}
+.scene.commercial .metrics{margin-top:34px}.scene.commercial .metric{display:block!important}.scene.commercial .metric strong{font-size:58px}
+.scene.financial .scene-content{top:15%;transform:none;max-width:100%}
+.scene.financial h1{font-size:clamp(40px,4.6vw,74px)}
+.scene.financial .body-copy{margin-top:20px;font-size:18px;max-width:1200px}
+.scene.financial .metrics .metric:last-child{display:block}.scene.financial .metrics{gap:75px;margin-top:36px}
+.scene.financial .metric strong{font-size:65px}.scene.financial .metric strong small{font-size:14px}.scene.financial .metric>span{font-size:14px}
+.cash-chart{height:23%;bottom:14%}
+.scene.capital .scene-content{top:45%;bottom:auto;max-width:53%;transform:translateY(-50%)}
+.scene.capital h1{font-size:clamp(37px,4.4vw,73px)}
+.scene.capital .body-copy{font-size:18px;max-width:700px}.scene.capital .metrics{margin-top:30px}.scene.capital .metric strong{font-size:65px}
+.funding-bars{display:grid;top:32%;width:33%;gap:27px}.funding-row{font-size:17px}.funding-row i{height:3px}
+.finale-story .story-copy{bottom:32%;max-width:1600px}
+.finale-story .story-copy h2{font-size:clamp(45px,5.4vw,89px);line-height:1.4}
+.finale-story .story-copy.capital-call h2 em{font-size:clamp(70px,9vw,150px)}
+.finale-story .story-copy.verdict h2{font-size:clamp(43px,5vw,82px);line-height:1.55}
+.finale-story .story-copy.film-title h2 span:first-child{font-size:clamp(70px,8.2vw,136px);letter-spacing:.03em;margin-bottom:25px}
+.finale-story .story-copy.film-title h2 span:last-child{font-size:clamp(30px,3.5vw,57px)}
+.finale-action{position:absolute;left:var(--safe);bottom:17%;z-index:5;display:flex;align-items:center;gap:30px;opacity:var(--final-action,0);pointer-events:none}
+.finale-action button,.finale-action a{pointer-events:auto}.finale-action a{font-size:13px;color:#cbbd9f}
+.scene-caption{display:none!important}
+@media(max-width:700px){
+ .scene .scene-content,.scene.technical .scene-content,.scene.seedship .scene-content,.scene.voyage .scene-content,.scene.capital .scene-content{top:18%;bottom:auto;transform:none;max-width:none;left:25px;right:25px}
+ .scene h1,.scene.technical h1,.scene.energy-focus h1,.scene.physics-cycle h1,.scene:has(.physics-condition) h1,.scene.seedship h1,.scene.voyage h1,.scene.inevitability h1,.scene.commercial h1{font-size:clamp(28px,8.1vw,39px);line-height:1.4}
+ .scene .body-copy,.scene.technical .body-copy,.scene.commercial .body-copy{font-size:12px;line-height:1.85;max-width:100%;margin-top:18px}
+ .scene .physics-condition,.route-spec{font-size:9px;line-height:1.8;margin-top:15px}
+ .hook-story .story-copy.bill{bottom:30%;max-width:none}.hook-story .story-copy.bill h2 em{font-size:clamp(28px,8.2vw,45px)}.hook-story .bill-unit{font-size:24px}.hook-story .story-copy.bill p{font-size:12px;line-height:1.8}
+ .history-story .story-copy h2,.history-story .story-copy.settlement h2{font-size:clamp(29px,8.5vw,40px)}.history-story .story-copy p{font-size:12px}
+ .scene.orbital-system .scene-content{top:13%;max-width:none}.engineering-list{font-size:11px;gap:9px;margin-top:14px}.engineering-list span{font-size:9px;margin-left:8px}.engineering-list li:before{font-size:9px;margin-right:9px}
+ .diagram-stage{top:48%;height:40%}.diagram-stage.physics-stage{top:48%;height:38%}.diagram-stage.transport-stage{top:48%;height:37%}
+ .speed-bands{top:53%;left:25px;right:25px;width:auto;gap:7px}.speed-band{font-size:23px;padding:14px 0}.speed-band small{font-size:10px;margin-top:8px}
+ .scene.inevitability .scene-content{top:24%}.scene.inevitability .body-copy{font-size:13px}
+ .scene.voyage .travel-profile{margin-top:30px;flex-wrap:wrap}.travel-profile div{flex:1 0 45%;padding:15px 0}.travel-profile b{font-size:40px}
+ .scene.message .scene-content{top:25%;bottom:auto}.scene.message h1{font-size:34px}.terminal-report{bottom:20%;right:25px;font-size:10px}
+ .scene.network .scene-content{top:14%;transform:none}.scene.network h1{font-size:29px}.scene.network .metrics{gap:35px;margin-top:19px}.scene.network .metric strong{font-size:36px}.network-scale{font-size:9px;margin-top:15px}.diagram-stage.network-stage{top:61%;height:25%}
+ .scene.commercial .scene-content{top:22%;transform:none}.scene.commercial .metrics{flex-wrap:wrap;gap:25px}.scene.commercial .metric strong{font-size:39px}.scene.commercial .metric strong small{font-size:10px}.scene.commercial .metric>span{font-size:9px}
+ .scene.financial .scene-content{top:14%;transform:none}.scene.financial h1{font-size:32px}.scene.financial .body-copy{font-size:11px}.scene.financial .metrics{display:grid;grid-template-columns:1fr 1fr;gap:23px 15px;margin-top:24px}.scene.financial .metric strong{font-size:35px}.scene.financial .metric strong small{font-size:9px}.scene.financial .metric>span{font-size:9px}.cash-chart{bottom:16%;height:18%}
+ .scene.capital .scene-content{top:14%}.scene.capital h1{font-size:32px}.scene.capital .body-copy{font-size:11px}.scene.capital .metrics{margin-top:18px}.scene.capital .metric strong{font-size:44px}.scene.capital .metric strong small{font-size:10px}
+ .funding-bars{top:56%;left:25px;right:25px;width:auto;gap:14px}.funding-row{font-size:11px;gap:7px}
+ .finale-story .story-copy{bottom:34%;max-width:none}.finale-story .story-copy h2,.finale-story .story-copy.verdict h2{font-size:clamp(26px,7.8vw,38px);line-height:1.5}.finale-story .story-copy.capital-call h2 em{font-size:clamp(39px,11vw,56px)}.finale-story .story-copy.film-title h2 span:first-child{font-size:38px;margin-bottom:20px}.finale-story .story-copy.film-title h2 span:last-child{font-size:24px}.finale-action{bottom:20%;gap:18px}.finale-action a{font-size:10px}.finale-action .gold-button{font-size:10px;padding:11px 15px}
+}
+
+@media(max-width:360px){.scene h1,.scene.technical h1,.scene.energy-focus h1,.scene.physics-cycle h1,.scene.seedship h1,.scene.voyage h1,.scene.inevitability h1,.scene.commercial h1,.scene.capital h1,.scene.financial h1,.scene.network h1,.scene.transport h1,.scene.message h1{font-size:26px!important}.scene .body-copy,.scene.technical .body-copy{font-size:11px}.engineering-list{font-size:10px}.scene.orbital-system .body-copy{font-size:10px}.scene.orbital-system .scene-content{top:12%}.scene.financial .metrics{margin-top:20px}.funding-bars{top:57%;gap:11px}.scene.network .metrics{margin-top:14px}.network-scale{margin-top:13px}}
+@media(min-width:701px){.scene.voyage .travel-profile{max-width:800px}.scene.voyage .body-copy{max-width:1000px}body:has(.scene.voyage.active) .diagram-stage{left:70%;width:27%;height:35%;top:26%}}
+@media(max-width:700px){.scene.transport .scene-content{top:14%;transform:none}.scene.transport .body-copy{font-size:11px}.scene.transport .route-spec{font-size:9px}.scene.capital .scene-content{transform:none}}
+
+.exchange-preview{position:absolute;left:47%;top:23%;width:50%;height:62%;border:0;background:transparent;z-index:4;pointer-events:none}.scene.exchange-scene .scene-bg{filter:brightness(.20) saturate(.6)}
+@media(max-width:700px){.exchange-preview{left:3%;top:48%;width:94%;height:38%}}

@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#040b12"><title>双向传送带｜回收抵达时的动能，供下一班加速</title><meta name="description" content="星穹铁道原理拆解：同一速度段，两向货舱，本站能量循环。可播放、暂停、逐步查看的交互动画。"><link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="principle.css"></head>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#040b12"><title>双向传送带｜回收抵达时的动能，供下一班加速</title><meta name="description" content="星穹铁道原理拆解：同一速度段，两向货舱，本站能量循环。可播放、暂停、逐步查看的交互动画。"><link rel="icon" href="assets/mark.svg?v=20261026-epic3" type="image/svg+xml"><link rel="stylesheet" href="principle.css?v=20261026-epic3"></head>
 <body>
 <div class="orbit-environment" aria-hidden="true"><div class="environment-image"></div><div class="environment-shade"></div><div class="environment-vignette"></div></div>
 <header class="site-header"><a href="index.html#6" class="brand"><span class="brand-mark">◎</span> 星穹铁道 <small>2222</small></a><a href="index.html#6" class="back">返回路演 ↗</a></header>
 <main>
- <section class="intro"><div><p class="eyebrow">双向传送带</p><h1>回收抵达时的动能，<em>供下一班加速。</em></h1></div></section>
+ <section class="intro"><div><p class="eyebrow">双向传送带</p><h1>抵达者的减速，<em>就是出发者的引擎。</em></h1></div></section>
  <section class="workbench" aria-label="双向传送带动态原理演示">
   <div class="visual-panel">
-   <div class="station-exterior" id="station-exterior" aria-hidden="true"><img src="assets/orbit-engineering.webp" alt=""><div class="exterior-shade"></div><div class="exterior-caption"><span>EARTH ORBIT / E-10.0</span><strong id="exterior-title">货舱进入环轨车站。</strong><small id="exterior-label">环轨车站外景</small></div></div>
+   <div class="station-exterior" id="station-exterior" aria-hidden="true"><img src="assets/orbit-engineering.webp?v=20261026-epic3" alt=""><div class="exterior-shade"></div><div class="exterior-caption"><span>EARTH ORBIT / E-10.0</span><strong id="exterior-title">货舱进入独立电磁模块。</strong><small id="exterior-label">独立模块外景</small></div></div>
    <svg id="rail-diagram" role="img" aria-label="两向货舱共用本站电磁模块。到达舱减速回收电能，经本站母线供出发舱加速。"></svg>
   </div>
-  <div class="energy-line" aria-label="单轮完整能量关系"><span class="energy-caption">本轮</span><span>回收 <b id="summary-recovered">279.2</b></span><i>+</i><span class="energy-grid">外补 <b id="summary-grid">0.0</b></span><i>→</i><span class="energy-out">加速 <b id="summary-need">279.2</b> <small>kWh</small></span></div>
-  <div class="story-panel"><div class="narration"><h2 id="phase-title">两班货舱从相反方向进入同一速度段。</h2></div></div>
+  <p class="ideal-formula">ΔEₖ = ½m(v₂² − v₁²) <span>1 t · 同一速度段</span></p><div class="energy-line" aria-label="单轮完整能量关系"><span class="energy-caption">本轮</span><span>回收 <b id="summary-recovered">279.2</b></span><i>+</i><span class="energy-grid">外补 <b id="summary-grid">0.0</b></span><i>→</i><span class="energy-out">加速 <b id="summary-need">279.2</b> <small>kWh</small></span></div>
+  <p class="efficiency-note">理想回收：外补 0.00 kWh　｜　回收90%：外补 27.9 kWh</p><div class="story-panel"><div class="narration"><h2 id="phase-title">两班货舱从相反方向进入同一速度段。</h2></div></div>
  </section>
  <section class="controls" aria-label="演示控制"><div class="play-controls"><button id="play-toggle" aria-label="暂停演示">Ⅱ <span>暂停</span></button><label class="timeline"><span class="sr-only">播放进度</span><input id="scrubber" type="range" min="0" max="28" step="0.01" value="0"><output id="timecode">00:00 / 00:28</output></label></div></section>
  <details class="principle-details"><summary>原理与参数 <span>＋</span></summary><div class="detail-content">
@@ -22,5 +22,5 @@
  <p class="scope-line" id="scope-line">这里演示同一座车站、同一参考系中的10.0—10.1 km/s速度段。本站回收减速释放的动能，再将电能用于出发货舱的加速。</p>
  <section class="deep-dive"><div class="thesis"><span class="eyebrow">每一次抵达，都为下一次出发供能</span><h2>长期往返运输，<br><em>必然要回收能量。</em></h2><p>外星开发需要持续运送物资，持续运输就必须降低每一班的成本。<br>车站建设很难，但只要人类要长期往返，这条路就必须修。</p></div><div class="explanation"><article><span>01 / 先算同一段</span><h3>从10.0加速到10.1 km/s，需要多少动能？</h3><p>ΔK = ½m(v₂² − v₁²)</p><strong>1吨 × 这个速度段 = 279.2 kWh</strong><p>加速需要这份动能。相同质量沿相反过程减速时，会释放同量动能。</p></article><article><span>02 / 再看设备</span><h3>同一套电磁模块承担加速与减速。</h3><p>加速时，设备作为电机工作；减速时，设备作为发电机工作。图中展开了两向通道，它们共用同一速度段的电磁模块、功率变换器与本站母线。</p></article><article><span>03 / 不必同时到场</span><h3>班次错开时，先储存回收的电能。</h3><p>切换“错峰发车”：到达货舱先减速，回收的电能进入储能设备；出发货舱随后取电。储能设备消化班次的时间差，调度系统匹配两向货流。</p></article><article><span>04 / 最后看差额</span><h3>回收90%，就补足剩下的10%。</h3><p>这一对1吨货舱需要279.2 kWh，回收251.3 kWh，外补27.9 kWh。上方“回收”选项可以立即显示差额。</p><p>零外补对应理想可逆、等质量、同速度段的能量配平。全线另计升轨、势能差、轨道调整与其他损耗。</p></article></div></section>
  </div></details>
-</main><footer class="site-footer"><span>ASTRAL RAIL / 2222</span><a href="index.html#6">回到整条铁路的故事 →</a></footer><script src="principle.js"></script>
+</main><footer class="site-footer"><span>ASTRAL RAIL / 2222</span><a href="index.html#6">回到整条铁路的故事 →</a></footer><script src="principle.js?v=20261026-epic3"></script>
 </body></html>

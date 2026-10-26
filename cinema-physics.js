@@ -23,6 +23,40 @@ export function drawPhysics(ctx,{mode,progress,time,width:w,height:h}){
    for(let i=0;i<6;i++){const q=(t*.35+i/6)%1;if(q<reveal&&row.k>.1)glow(left+span*q,y,row.c,1.3);}
   }
   text('v × 10',left,h*.89,fs,C.white);text('K × 100',right,h*.89,fs*1.2,C.gold,'right');
+ }else if(mode==='exchange'){
+  const fs=Math.max(12,Math.min(20,w/32)),x0=w*.07,x1=w*.93,top=h*.25,bot=h*.74,c=w*.5;
+  const phase=clamp((progress-.08)/.8),pod=(x,y,col,dir)=>{ctx.save();ctx.translate(x,y);ctx.scale(dir,1);const g=ctx.createLinearGradient(0,-11,0,11);g.addColorStop(0,'#cad8dc');g.addColorStop(.4,'#5b7483');g.addColorStop(1,'#152a38');ctx.fillStyle=g;ctx.strokeStyle='#94a9b3';ctx.lineWidth=.8;ctx.beginPath();ctx.roundRect(-26,-10,52,20,4);ctx.fill();ctx.stroke();line(-19,-7,18,-7,col,1,2);ctx.restore();};
+  for(const [y,col] of [[top,C.cyan],[bot,C.gold]]){line(x0,y,x1,y,col,.2,1);for(let i=0;i<7;i++){const x=w*.3+i*w*.065;ctx.strokeStyle='#738996';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x,y,8,29,0,Math.PI,Math.PI*2);ctx.stroke();}}
+  pod(x0+(x1-x0)*phase,top,C.cyan,1);pod(x1-(x1-x0)*phase,bot,C.gold,-1);
+  for(const [y,col] of [[top,C.cyan],[bot,C.gold]])for(let i=0;i<7;i++){const x=w*.3+i*w*.065;ctx.strokeStyle='#9eb3bf';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(x,y,8,29,0,0,Math.PI);ctx.stroke();}
+  const by=h*.5,bw=w*.36,bh=h*.13;
+  ctx.fillStyle='#142736';ctx.strokeStyle='#536f80';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(c-bw/2,by-bh/2,bw,bh,6);ctx.fill();ctx.stroke();
+  text('本站母线 + 储能',c,by+fs*.35,fs,C.white,'center');
+  line(c,bot-32,c,by+bh/2,C.gold,.7,2);line(c,by-bh/2,c,top+32,C.cyan,.7,2);
+  for(let i=0;i<6;i++){const q=(t*.6+i/6)%1;const active=Math.sin(phase*Math.PI);ctx.globalAlpha=active;if(q<.5)glow(c,bot-32-(bot-32-by-bh/2)*q*2,C.gold,2.5);else glow(c,by-bh/2-(by-bh/2-top-32)*(q-.5)*2,C.cyan,2.5);ctx.globalAlpha=1;}
+  text('出发 +K',x0,top-45,fs,C.cyan);text('抵达 −K',x1,bot+58,fs,C.gold,'right');
+  text('制动发电 → 功率调度 → 下一班加速',c,h*.95,fs*.8,C.muted,'center');
+ }else if(mode==='assembly'){
+  const fs=Math.max(12,Math.min(20,w/34)),cx=w*.53,cy=h*.48,rx=w*.38,ry=h*.28,n=9;
+  for(let i=0;i<n;i++){
+   const a=-2.7+i*.6,x=cx+Math.cos(a)*rx,y=cy+Math.sin(a)*ry,q=clamp(progress*n-i);
+   if(q<=0)continue;
+   ctx.save();ctx.globalAlpha=q;ctx.translate(x+(1-q)*70,y-(1-q)*70);ctx.rotate(Math.atan2(ry*Math.cos(a),-rx*Math.sin(a)));
+   const g=ctx.createLinearGradient(0,-10,0,10);g.addColorStop(0,'#a3b5be');g.addColorStop(.5,'#263e4c');g.addColorStop(1,'#536c7a');ctx.fillStyle=g;ctx.strokeStyle='#9eb4bc';ctx.lineWidth=.8;
+   ctx.beginPath();ctx.roundRect(-27,-11,54,22,3);ctx.fill();ctx.stroke();
+   for(let k=0;k<4;k++){ctx.strokeStyle='#c3d2d6';ctx.beginPath();ctx.ellipse(-18+k*12,0,3,8,0,0,Math.PI*2);ctx.stroke();}line(-20,-8,20,-8,C.cyan,.7,1);ctx.restore();
+   if(q<1){glow(x+40*(1-q),y-40*(1-q),C.gold,3);line(x+40*(1-q),y-40*(1-q),x,y,C.gold,.4,.7);}
+  }
+  text(String(Math.floor(2352+12*progress)),cx,h*.47,Math.min(70,w*.11),C.white,'center');
+  text('独立模块逐段就位',cx,h*.55,fs*.8,C.gold,'center');
+  text('采掘 → 冶炼 → 制造 → 构型部署',cx,h*.9,fs*.8,C.muted,'center');
+ }else if(mode==='voyage'){
+  const fs=Math.max(12,Math.min(21,w/34)),x0=w*.1,x1=w*.9,y=h*.5;
+  line(x0,y,x1,y,'#9eb2ba',.5,1);
+  const q=clamp(progress),x=x0+(x1-x0)*q;
+  glow(x,y,C.cyan,4);text('SOL',x0,y-30,fs,C.white);text('PROXIMA',x1,y-30,fs,C.gold,'right');
+  text('4.24 光年',w*.5,y+40,fs,C.muted,'center');
+  text(String(Math.floor(2300+52.1*q)),w*.5,h*.24,Math.min(65,w*.13),C.white,'center');
  }else{
   const fs=Math.max(11,Math.min(20,w/35)),ax=w*.13,bx=w*.87,cy=h*.45,r=Math.max(17,Math.min(48,w*.055));
   const bezier=(q,reverse=false)=>{
