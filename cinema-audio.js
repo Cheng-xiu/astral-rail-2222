@@ -1,9 +1,9 @@
 // One continuous picture edit, locked to the same clock as the film.
 export function createCinemaScore(src, duration, onError) {
  const audio=new Audio(src);
- audio.preload='auto';audio.volume=0;audio.preservesPitch=true;
+ audio.preload='metadata';audio.volume=0;audio.preservesPitch=true;
  let enabled=false,position=0,playing=false,speed=1,visible=true,pending=null,mix=0,lastFrame=0,failed=null;
- const levels=[[0,.78],[26,.84],[64,.94],[72,.72],[90,.62],[94,.51],[120,.51],[128,.76],[146,.88],[165,1],[196,1],[206,.79],[220,.72],[234,.82],[239,.94],[246,.85],[254,0]];
+ const levels=[[0, 0.9], [13, 0.9], [23, 0.76], [45, 0.72], [57, 0.65], [67, 0.52], [96, 0.52], [105, 0.85], [129, 0.85], [165, 0.94], [174, 1], [209, 1], [221, 0.8], [243, 0.75], [252, 0.94], [258, 0.85], [266, 0]];
  function levelAt(t){
   for(let i=1;i<levels.length;i++)if(t<=levels[i][0]){
    const [a,x]=levels[i-1],[b,y]=levels[i],p=Math.max(0,Math.min(1,(t-a)/(b-a)));

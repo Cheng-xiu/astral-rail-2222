@@ -35,7 +35,7 @@ dialog{width:min(760px,calc(100% - 40px));padding:36px 40px 30px;background:#0a1
 .scene .body-copy{font-size:clamp(12px,1.02vw,16px);line-height:1.8;color:#e0e6e6c4;margin-top:24px;max-width:780px;letter-spacing:.025em;text-shadow:0 2px 12px #0009}
 .scene.technical .scene-content{top:29%;bottom:auto;transform:none;max-width:47%}.scene.technical h1{font-size:clamp(40px,4.5vw,70px)}.scene.technical .body-copy{font-size:13px;line-height:1.9;max-width:440px}
 .scene[data-scene='2'] .scene-bg{filter:brightness(.48) saturate(.6)}.fleet{opacity:.45;left:50%;top:19%;right:0;transform:rotate(-18deg)}
-.scene[data-scene='9'] .scene-content{bottom:16%}.scene[data-scene='9'] h1{font-size:clamp(45px,5.4vw,82px)}
+.scene[data-scene='11'] .scene-content{bottom:16%}.scene[data-scene='11'] h1{font-size:clamp(45px,5.4vw,82px)}
 .scene.message .scene-content{top:auto;bottom:24%;max-width:1170px}.scene.message h1{font-size:clamp(40px,5.5vw,82px)}.signal-indicator{opacity:.4}
 .metrics{gap:38px;margin-top:28px}.metric{border:0;padding-left:0;min-width:0}.metric strong{font-size:54px;font-weight:300;color:#ead3ad;letter-spacing:-.06em}.metric strong small{font-size:10px;color:#d5deddad;margin-left:8px;letter-spacing:.02em}.metric>span{font-size:10px;color:#c7d4d6a8;line-height:1.6;margin-top:8px}
 .scene.network .metrics .metric:last-child{display:none}.scene.network h1{font-size:clamp(37px,4vw,62px)}.scene.network .metric strong{font-size:60px}.scene.network .scene-content{top:24%}
@@ -43,7 +43,7 @@ dialog{width:min(760px,calc(100% - 40px));padding:36px 40px 30px;background:#0a1
 .diagram-stage{left:47%;top:18%;height:69%;width:51%}.diagram-stage.transport-stage{top:34%;height:52%;left:9%;width:82%}.diagram-stage.network-stage{left:43%;width:53%;top:25%;height:55%}
 .speed-bands{gap:0;top:39%;width:31%}.speed-band{border:0;background:none;padding:0;font:26px/1.5 monospace;color:#e8d0a7;display:none}.speed-band.active{display:block}.speed-band small{font-size:10px;color:#b3cad0;margin-top:14px;line-height:1.8}.speed-band i{position:relative;display:block;height:1px;width:100%;left:0;margin-top:24px;opacity:.7}.speed-band.active i{animation:none}
 .travel-profile{border:0;max-width:300px;margin-top:25px}.travel-profile div{display:none;border:0;padding:0}.travel-profile div:last-child{display:block}.travel-profile b{font:300 58px/1 Arial,sans-serif;color:#e9cfa2}.travel-profile span{font-size:10px;color:#d2dfdfb8;margin-top:10px}
-.scene[data-scene='14'] .metrics .metric:nth-child(2){display:none}.scene[data-scene='14'] .metric strong{font-size:50px}.scene[data-scene='14'] .scene-content{bottom:18%}
+.scene[data-scene='16'] .metrics .metric:nth-child(2){display:none}.scene[data-scene='16'] .metric strong{font-size:50px}.scene[data-scene='16'] .scene-content{bottom:18%}
 .scene.financial .scene-content{top:24%;bottom:auto;max-width:none}.scene.financial h1{font-size:clamp(42px,5.1vw,76px)}.scene.financial .metrics{margin-top:35px;gap:50px}.scene.financial .metric strong{font-size:62px}.scene.financial .metrics .metric:last-child{display:none}.cash-chart{height:20%;bottom:16%;opacity:.7}
 .scene.financial .scene-shade{background:linear-gradient(90deg,#02080bd9,#02080b88 55%,#02080b33),linear-gradient(0deg,#02080bf0,transparent 70%)}
 .scene.capital .scene-content{top:auto;bottom:20%;max-width:100%}.scene.capital h1{font-size:clamp(40px,5.2vw,80px)}.scene.capital .metrics{margin-top:30px}.scene.capital .metric strong{font-size:58px}.scene.capital .metrics .metric:not(:first-child),.funding-bars{display:none}
@@ -67,18 +67,18 @@ dialog{width:min(760px,calc(100% - 40px));padding:36px 40px 30px;background:#0a1
  .diagram-stage{top:38%;left:0;width:100%;height:49%}.diagram-stage.transport-stage{top:35%;height:49%;left:2%;width:96%}.diagram-stage.network-stage{left:4%;width:92%;height:39%;top:48%}
  .scene.transport .scene-content{top:16%;bottom:auto}.scene.transport h1{font-size:34px;line-height:1.35}.scene.transport .body-copy{font-size:11px;margin-top:18px}
  .scene.bands .scene-content{top:21%;bottom:auto}.scene.bands h1{font-size:37px}.speed-bands{top:55%;left:25px;right:25px;width:auto}.speed-band{font-size:23px}.speed-band small{display:block;margin:13px 0 0;font-size:9px}.speed-band i{margin-top:23px}
- .scene[data-scene='9'] .scene-content{bottom:22%}.scene[data-scene='9'] h1{font-size:35px;line-height:1.38}.scene.message .scene-content{top:auto;bottom:31%}.scene.message h1{font-size:31px;line-height:1.6}.scene.message .body-copy{font-size:10px}
+ .scene[data-scene='11'] .scene-content{bottom:22%}.scene[data-scene='11'] h1{font-size:35px;line-height:1.38}.scene.message .scene-content{top:auto;bottom:31%}.scene.message h1{font-size:31px;line-height:1.6}.scene.message .body-copy{font-size:10px}
  .travel-profile{margin-top:26px}.travel-profile b{font-size:48px}.travel-profile span{font-size:9px}
  .metrics{flex-wrap:nowrap;gap:30px;margin-top:27px}.metric strong{font-size:38px}.metric strong small{display:block;font-size:8px;margin:7px 0 0}.metric>span{font-size:8px;margin-top:7px}
  .scene.network .scene-content{top:16%;bottom:auto}.scene.network h1{font-size:30px;line-height:1.4}.scene.network .body-copy{font-size:10px;margin-top:17px}.scene.network .metrics{margin-top:22px}.scene.network .metric strong{font-size:43px}.scene.network .metric strong small{display:inline;margin-left:7px;font-size:11px}
- .scene[data-scene='14'] .scene-content{bottom:24%}.scene[data-scene='14'] .metric strong{font-size:37px}.scene[data-scene='14'] h1{font-size:37px}
+ .scene[data-scene='16'] .scene-content{bottom:24%}.scene[data-scene='16'] .metric strong{font-size:37px}.scene[data-scene='16'] h1{font-size:37px}
  .scene.financial .scene-content{top:17%;bottom:auto}.scene.financial h1{font-size:33px;line-height:1.4}.scene.financial .body-copy{font-size:10px}.scene.financial .metrics{display:flex;gap:33px;margin-top:30px}.scene.financial .metric strong{font-size:34px}.scene.financial .metric strong small{display:block;font-size:8px;margin:8px 0 0}.scene.financial .metric>span{font-size:8px}.cash-chart{bottom:20%;height:23%}
  .scene.capital .scene-content{top:auto;bottom:23%;max-width:none}.scene.capital h1{font-size:34px;line-height:1.4}.scene.capital .body-copy{font-size:11px}.scene.capital .metrics{margin-top:26px}.scene.capital .metric strong{font-size:48px}.scene.capital .metric strong small{display:inline;font-size:10px;margin-left:9px}.scene.capital .metric>span{max-width:none;font-size:9px}
  .scene.investment .scene-content{top:auto;bottom:18%;max-width:none}.scene.investment h1{font-size:35px;line-height:1.45}.scene.investment .body-copy{font-size:11px;line-height:1.8;margin-top:21px}.scene.investment .metrics{margin:26px 0}.scene.investment .metric strong{font-size:40px}.scene.investment .metric strong small{font-size:10px;display:inline;margin-left:9px}.scene.investment .metric>span{font-size:9px;margin-top:8px}.scene.investment .gold-button{width:auto;min-height:47px;padding:12px 20px;font-size:11px;gap:28px}
  .player{height:67px;min-height:0;padding:0 25px 14px;background:linear-gradient(transparent,#02080b88)}.player-controls{height:48px;gap:12px;margin:0;justify-content:space-between}.film-timeline{bottom:10px}.transport-controls{gap:12px}.transport-controls button{min-width:22px;font-size:13px}.timecode{font-size:7px}.timecode i{margin:0 4px}.view-controls{gap:14px}.view-controls button,#sound-toggle{font-size:8px}#replay{font-size:17px}#sound-toggle span{font-size:7px;margin-left:5px}
  #chapters-dialog{padding:27px 24px}.menu-utilities{gap:17px;margin-bottom:21px}.menu-utilities a,.menu-utilities button{font-size:10px}#chapter-grid{gap:0 15px}#chapter-grid button{font-size:10px;padding:13px 0;gap:7px}#chapter-grid button span{font-size:8px}#chapters-dialog h2{font-size:30px}.dialog-foot{font-size:8px}
 }
-@media(max-width:360px){.scene h1{font-size:34px}.scene[data-scene='9'] h1{font-size:30px}.scene.investment h1{font-size:29px}.scene.investment .scene-content{bottom:18%}.scene.financial h1{font-size:29px}.scene.financial .metrics{gap:24px}.scene.financial .metric strong{font-size:30px}.scene.capital h1{font-size:30px}.scene.message h1{font-size:27px}.scene.network h1{font-size:27px}.scene.transport h1{font-size:29px}.view-controls{gap:10px}.timecode{display:none}}
+@media(max-width:360px){.scene h1{font-size:34px}.scene[data-scene='11'] h1{font-size:30px}.scene.investment h1{font-size:29px}.scene.investment .scene-content{bottom:18%}.scene.financial h1{font-size:29px}.scene.financial .metrics{gap:24px}.scene.financial .metric strong{font-size:30px}.scene.capital h1{font-size:30px}.scene.message h1{font-size:27px}.scene.network h1{font-size:27px}.scene.transport h1{font-size:29px}.view-controls{gap:10px}.timecode{display:none}}
 /* One sustained memory, entered only after the future-facing argument is complete. */
 .logic-story>.scene-content{display:none!important}
 .story-visuals,.story-titles,.story-visual{position:absolute;inset:0;pointer-events:none}
@@ -98,8 +98,31 @@ dialog{width:min(760px,calc(100% - 40px));padding:36px 40px 30px;background:#0a1
 @media(max-width:360px){.story-copy h2{font-size:34px}.story-copy p{font-size:10px}.story-copy.rail h2{font-size:32px}}
 @media(max-width:700px){.story-visual.ship .story-bg{object-position:100% center;transform:scale(calc(1 + var(--shot-p,0)*.035))}}
 .fleet{display:none!important}.scene[data-scene="4"] .scene-shade{background:linear-gradient(90deg,#03090fbb,transparent 65%)}.scene[data-scene="7"] .scene-shade{background:radial-gradient(ellipse at 50% 50%,#0b223322,transparent 70%)}
-@media(max-width:360px){.scene[data-scene="14"] h1{font-size:30px}}
+@media(max-width:360px){.scene[data-scene="16"] h1{font-size:30px}}
 .music-start{position:fixed;right:var(--safe);bottom:98px;z-index:31;background:none;padding:10px 0;color:#e7d4b1;font-size:11px;letter-spacing:.05em;text-shadow:0 2px 16px #000;display:flex;align-items:center;gap:10px;transition:color .2s}
 .music-start span{font-size:20px}.music-start:hover{color:#fff}.music-start[hidden]{display:none}
 .music-credit{font-size:10px;line-height:1.9;margin-top:26px;color:#9aacae}.music-credit a{color:#d1b98e}.music-credit a:hover{color:#fff}
 @media(max-width:700px){.music-start{font-size:10px;bottom:72px}.music-start span{font-size:17px}.music-credit{font-size:9px}}
+
+/* Gentle dissolves connect each argument; diagrams keep moving between matched scenes. */
+.scene,.scene.active,.scene.leaving{transform:none;filter:none;transition:opacity 1.1s ease,visibility 1.1s}
+.scene.leaving .scene-content,.scene.leaving .story-titles{opacity:0;transition:opacity .2s ease}
+.scene.active h1 .line{animation-delay:calc(var(--i,0)*.15s + .34s)}
+#transition-flash{display:none!important}
+.scene-bg{transform:scale(calc(1.025 + var(--p,0)*.07)) translateX(calc(var(--p,0)*-1.5%))}
+.hook-story .story-bg{transform:scale(calc(1.04 + var(--p,0)*.12)) translateX(calc(var(--p,0)*-1%))}
+.hook-story .story-copy{bottom:22%;max-width:1450px}
+.hook-story .story-copy h2{font-size:clamp(48px,6.1vw,100px);line-height:1.25}
+.hook-story .story-copy.bill h2 em{font-size:clamp(56px,7.3vw,128px)}
+.hook-number{font-family:Arial,sans-serif;font-weight:400;letter-spacing:-.055em}
+.hook-story .story-copy.bill p{max-width:900px}
+.physics-condition{font-size:11px;line-height:1.8;color:#d5be94;margin-top:25px;letter-spacing:.05em}
+.diagram-stage.physics-stage{left:47%;top:21%;width:50%;height:63%}
+.scene.energy-focus .scene-content,.scene.physics-cycle .scene-content{top:26%;max-width:45%}
+.scene.energy-focus h1,.scene.physics-cycle h1{font-size:clamp(38px,4.4vw,69px)}
+.scene.energy-focus .body-copy,.scene.physics-cycle .body-copy{max-width:580px}
+.speed-band .return-pulse{top:0;bottom:auto;animation-direction:reverse!important;background:var(--cyan)!important;box-shadow:0 0 12px #74e4eb66!important}
+@media(max-width:700px){.hook-story .story-copy{bottom:26%;right:25px}.hook-story .story-copy h2{font-size:clamp(31px,8.6vw,49px)}.hook-story .story-copy.bill h2 em{font-size:clamp(33px,9.3vw,52px)}.hook-story .story-copy.bill p{max-width:100%;font-size:11px}.diagram-stage.physics-stage{left:3%;top:46%;width:94%;height:37%}.scene.energy-focus .scene-content,.scene.physics-cycle .scene-content{top:16%;max-width:none}.scene.energy-focus h1,.scene.physics-cycle h1{font-size:clamp(30px,8.4vw,43px)}.scene.energy-focus .body-copy,.scene.physics-cycle .body-copy{font-size:11px;margin-top:17px;max-width:100%}.physics-condition{font-size:8px;margin-top:16px;letter-spacing:0}.scene[data-scene='11'] h1{font-size:32px}.scene[data-scene='16'] h1{font-size:34px}}
+@media(max-width:360px){.hook-story .story-copy h2{font-size:28px}.hook-story .story-copy.bill h2 em{font-size:30px}.scene.physics-cycle h1{font-size:28px}.scene[data-scene='11'] h1{font-size:28px}.scene[data-scene='16'] h1{font-size:30px}.scene[data-scene='10'] h1{font-size:30px}}
+
+.scene.energy-focus .scene-bg{filter:brightness(.52) saturate(.7)}
