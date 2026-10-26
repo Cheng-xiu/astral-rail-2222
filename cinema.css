@@ -230,3 +230,5 @@ dialog{width:min(760px,calc(100% - 40px));padding:36px 40px 30px;background:#0a1
 
 .exchange-preview{position:absolute;left:47%;top:23%;width:50%;height:62%;border:0;background:transparent;z-index:4;pointer-events:none}.scene.exchange-scene .scene-bg{filter:brightness(.20) saturate(.6)}
 @media(max-width:700px){.exchange-preview{left:3%;top:48%;width:94%;height:38%}}
+
+.scene[data-beat] h1 .line{opacity:1!important;transform:none!important}

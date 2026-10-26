@@ -1,7 +1,7 @@
-import { drawDiagram } from './cinema-diagrams.js?v=20261026-epic3';
-import { calculateFinance } from './finance.js?v=20261026-epic3';
-import { createCinemaScore } from './cinema-audio.js?v=20261026-epic3';
-import { drawPhysics } from './cinema-physics.js?v=20261026-epic3';
+import { drawDiagram } from './cinema-diagrams.js?v=20261026-epic4';
+import { calculateFinance } from './finance.js?v=20261026-epic4';
+import { createCinemaScore } from './cinema-audio.js?v=20261026-epic4';
+import { drawPhysics } from './cinema-physics.js?v=20261026-epic4';
 
 const $ = id => document.getElementById(id);
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -188,7 +188,7 @@ const SCENES = [
   "duration": 32,
   "chapter": "03 / 轨道的动脉",
   "class": "principle-embedded",
-  "embed": "principle.html?embed=1&v=20261026-epic3",
+  "embed": "principle.html?embed=1&v=20261026-epic4",
   "coordinate": "1 t / 10.0 ⇄ 10.1 km/s"
  },
  {
@@ -493,8 +493,8 @@ const total = SCENES.reduce((sum,s)=>sum+s.duration,0);
 const offsets = SCENES.map((_,i)=>SCENES.slice(0,i).reduce((sum,s)=>sum+s.duration,0));
 const elements = SCENES.map((s,i)=>{
  const el=document.createElement('section');el.className=`scene ${s.class||''}`;el.dataset.scene=String(i);el.setAttribute('aria-hidden','true');el.setAttribute('aria-label',s.name);
- el.innerHTML=s.embed?`<div class="principle-embed"><iframe id="principle-frame" src="${s.embed}" title="星穹铁道原理拆解：分段加速、再生制动与能量回收" tabindex="-1"></iframe></div>`:`${s.bg?`<img class="scene-bg" src="assets/${s.bg}.webp?v=20261026-epic3" alt="" aria-hidden="true">`:''}<div class="scene-shade"></div><div class="scene-large-index" aria-hidden="true">${String(i+1).padStart(2,'0')}</div><div class="scene-content"><p class="eyebrow">${s.eyebrow||''}</p><h1>${s.title.map((line,j)=>`<span class="line" style="--i:${j}">${line}</span>`).join('')}</h1><p class="body-copy">${s.copy}</p>${s.extra||''}</div>${s.outside||''}<p class="scene-caption">${s.caption||''}</p>`;
- if(s.story){el.insertAdjacentHTML('beforeend',`<div class="story-visuals" aria-hidden="true">${s.story.map((shot,j)=>`<div class="story-visual ${shot.kind}" data-shot="${j}"><img class="story-bg" src="assets/${shot.image}.webp?v=20261026-epic3" alt=""><div class="story-shade"></div></div>`).join('')}</div><div class="story-titles">${s.story.map((shot,j)=>`<div class="story-copy ${shot.kind}" data-shot="${j}" aria-hidden="true"><h2>${shot.title.map(line=>`<span>${line}</span>`).join('')}</h2>${shot.line?`<p>${shot.line}</p>`:''}</div>`).join('')}</div>`);s.visuals=[...el.querySelectorAll('.story-visual')];s.titles=[...el.querySelectorAll('.story-copy')];}
+ el.innerHTML=s.embed?`<div class="principle-embed"><iframe id="principle-frame" src="${s.embed}" title="星穹铁道原理拆解：分段加速、再生制动与能量回收" tabindex="-1"></iframe></div>`:`${s.bg?`<img class="scene-bg" src="assets/${s.bg}.webp?v=20261026-epic4" alt="" aria-hidden="true">`:''}<div class="scene-shade"></div><div class="scene-large-index" aria-hidden="true">${String(i+1).padStart(2,'0')}</div><div class="scene-content"><p class="eyebrow">${s.eyebrow||''}</p><h1>${s.title.map((line,j)=>`<span class="line" style="--i:${j}">${line}</span>`).join('')}</h1><p class="body-copy">${s.copy}</p>${s.extra||''}</div>${s.outside||''}<p class="scene-caption">${s.caption||''}</p>`;
+ if(s.story){el.insertAdjacentHTML('beforeend',`<div class="story-visuals" aria-hidden="true">${s.story.map((shot,j)=>`<div class="story-visual ${shot.kind}" data-shot="${j}"><img class="story-bg" src="assets/${shot.image}.webp?v=20261026-epic4" alt=""><div class="story-shade"></div></div>`).join('')}</div><div class="story-titles">${s.story.map((shot,j)=>`<div class="story-copy ${shot.kind}" data-shot="${j}" aria-hidden="true"><h2>${shot.title.map(line=>`<span>${line}</span>`).join('')}</h2>${shot.line?`<p>${shot.line}</p>`:''}</div>`).join('')}</div>`);s.visuals=[...el.querySelectorAll('.story-visual')];s.titles=[...el.querySelectorAll('.story-copy')];}
  $('scenes').append(el);return el;
 });
 const buttons = SCENES.map((s,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`第${i+1}幕：${s.name}`);b.title=`${String(i+1).padStart(2,'0')} · ${s.name}`;b.innerHTML='<i></i>';b.addEventListener('click',()=>go(i));$('film-timeline').append(b);return b;});
@@ -505,7 +505,7 @@ function sizeCanvases(){const dpr=Math.min(devicePixelRatio||1,2);screenWidth=in
 addEventListener('resize',sizeCanvases);new ResizeObserver(sizeCanvases).observe($('diagram-stage'));
 const starPoints=Array.from({length:110},(_,i)=>({x:((i*73+29)%997)/997,y:((i*137+11)%991)/991,z:(i%9+1)/10,phase:i*2.3}));
 let index=0,elapsed=0,playing=true,speed=1,lastTime=0,filmTime=0,finished=false,changeTimer,soundOn=false;
-const score=createCinemaScore('assets/astral-rail-score.mp3?v=20261026-epic3',total,()=>{soundOn=false;updateMusicControl();$('music-start').hidden=false;toast('配乐暂未开启，请再点一次“配乐”。');});
+const score=createCinemaScore('assets/astral-rail-score.mp3?v=20261026-epic4',total,()=>{soundOn=false;updateMusicControl();$('music-start').hidden=false;toast('配乐暂未开启，请再点一次“配乐”。');});
 function syncAudio(){score.sync(offsets[index]+elapsed,playing&&!finished&&!document.querySelector('dialog[open]'),speed,!document.hidden);}
 function updateMusicControl(){const b=$('sound-toggle');b.setAttribute('aria-pressed',String(soundOn));b.setAttribute('aria-label',soundOn?'关闭配乐':'开启配乐');b.querySelector('span').textContent=soundOn?'开':'关';if(soundOn)$('music-start').hidden=true;}
 async function setMusicEnabled(value){soundOn=value;updateMusicControl();syncAudio();try{await score.setEnabled(value);}catch{soundOn=false;updateMusicControl();}}
